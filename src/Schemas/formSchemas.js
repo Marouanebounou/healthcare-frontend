@@ -14,3 +14,20 @@ export const medecinSchema = yup.object().shape({
   email: yup.string().email('Email invalide').required('L\'email est obligatoire'),
   telephone: yup.string().required('Le téléphone est obligatoire'),
 });
+
+export const rendezvousSchema = yup.object().shape({
+    dateRendezvous: yup.date().required('La date du rendez-vous est obligatoire'),
+    status: yup.string().required('Le statut est obligatoire'),
+    patientId: yup.string().required('L\'ID du patient est obligatoire'),
+    medecinId: yup.string().required('L\'ID du médecin est obligatoire'),
+    dossierMedical: yup.string().required('Le dossier médical est obligatoire'),
+});
+
+export const dossierMedicalSchema = yup.object().shape({
+    diagnostic: yup.string().required('Le diagnostic est obligatoire'),
+    observation : yup.string().required('L\'observation est obligatoire'),
+    dateCreation: yup.date().required('La date de création est obligatoire'),
+    patientId: yup.string().required('L\'ID du patient est obligatoire'),
+    medecinId: yup.string().required('L\'ID du médecin est obligatoire'),
+});
+

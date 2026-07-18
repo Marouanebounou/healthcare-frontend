@@ -3,6 +3,7 @@ import api from './api';
 export const patientService = {
   getAll: async () => {
     const response = await api.get('/patient/all');
+    console.log(response);
     return response.data;
   },
 
