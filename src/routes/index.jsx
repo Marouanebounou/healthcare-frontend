@@ -9,8 +9,18 @@ import Doctors from '../pages/Doctors';
 import Appointments from '../pages/Appointments';
 import MedicalRecords from '../pages/MedicalRecords';
 import About from '../pages/About';
+import Login from '../pages/Login.jsx';
+import Register from '../pages/Register.jsx';
 
 export const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
   {
     path: '/',
     element: <NavbarLayout />, 
