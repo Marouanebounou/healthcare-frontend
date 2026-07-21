@@ -28,6 +28,8 @@ export default function Appointments() {
       ]);
       
       setAppointments(apptsData.content || []);
+      console.log(apptsData);
+      
       setPatients(ptsData.content || []);
       setMedecins(medsData.content || []);
       setDossierMedical(dossierData.content || []);
@@ -130,8 +132,8 @@ export default function Appointments() {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Patient</th>
-                <th>Médecin</th>
+                <th>Patient id</th>
+                <th>Médecin id</th>
                 <th>Statut</th>
                 <th>Actions</th>
               </tr>
@@ -139,9 +141,9 @@ export default function Appointments() {
             <tbody>
               {appointments.map(rdv => (
                 <tr key={rdv.id}>
-                  <td>{new Date(rdv.dateRendezvous).toLocaleString()}</td>
-                  <td>{rdv.patient?.nom} {rdv.patient?.prenom}</td>
-                  <td>{rdv.medecin?.nom} - {rdv.medecin?.specialite}</td>
+                  <td>{rdv.dateRendezVous}</td>
+                  <td>{rdv.patientId}</td>
+                  <td>{rdv.medecinId}</td>
                   <td>{rdv.status}</td>
                   <td>
                     {rdv.status !== 'CONFIRME' && (
