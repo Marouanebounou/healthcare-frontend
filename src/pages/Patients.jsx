@@ -15,7 +15,7 @@ export default function Patients() {
   const loadPatients = async () => {
     try {
       const data = await patientService.getAll();
-      setPatients(data);
+      setPatients(data.content || []);
     } catch (error) {
       console.error("Erreur lors du chargement des patients", error);
     } finally {
@@ -67,6 +67,11 @@ export default function Patients() {
             {errors.telephone && <p style={{ color: 'red', margin: 0 }}>{errors.telephone.message}</p>}
           </div>
 
+          <div>
+            <input type="date" {...register('dateNaissance')} placeholder="Date de Naissance" />
+            {errors.dateNaissance && <p style={{ color: 'red', margin: 0 }}>{errors.dateNaissance.message}</p>}
+          </div>
+
           <button type="submit">Ajouter</button>
         </form>
       </section>
@@ -81,6 +86,7 @@ export default function Patients() {
                 <th>Prénom</th>
                 <th>Email</th>
                 <th>Téléphone</th>
+                <th>Date de Naissance</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -91,6 +97,7 @@ export default function Patients() {
                   <td>{patient.prenom}</td>
                   <td>{patient.email}</td>
                   <td>{patient.telephone}</td>
+                  <td>{new Date(patient.dateNaissance).toLocaleDateString()}</td>
                   <td>
                     <button>Modifier</button>
                     <button onClick={async () => {

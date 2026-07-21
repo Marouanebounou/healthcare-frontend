@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const loginSchema = yup.object().shape({
-  email: yup.string().email('Email invalide').required('L\'email est obligatoire'),
+  username: yup.string().required('Le username est obligatoire'),
   password: yup.string().required('Le mot de passe est obligatoire'),
 });
 
@@ -31,7 +31,7 @@ export const rendezvousSchema = yup.object().shape({
     status: yup.string().required('Le statut est obligatoire'),
     patientId: yup.string().required('L\'ID du patient est obligatoire'),
     medecinId: yup.string().required('L\'ID du médecin est obligatoire'),
-    dossierMedical: yup.string().required('Le dossier médical est obligatoire'),
+    dossierMedical: yup.string(),
 });
 
 export const dossierMedicalSchema = yup.object().shape({

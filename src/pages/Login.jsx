@@ -29,8 +29,8 @@ export default function Login() {
       <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         
         <div>
-          <input type="email" {...register('email')} placeholder="Email" />
-          {errors.email && <p style={{ color: 'red', margin: 0 }}>{errors.email.message}</p>}
+          <input type="text" {...register('username')} placeholder="User Name" />
+          {errors.username && <p style={{ color: 'red', margin: 0 }}>{errors.username.message}</p>}
         </div>
 
         <div>
